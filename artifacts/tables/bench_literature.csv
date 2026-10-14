@@ -1,0 +1,11 @@
+Reference,Method family,Implementation here
+"Hamilton (1989), Econometrica 57(2):357-384",Markov-switching regimes in returns,Gaussian HMM (multivariate generalisation) with filtered probabilities -> 'HMM-based approach'
+"Rabiner (1989), Proc. IEEE 77(2):257-286",HMM inference (forward algorithm),Forward filtering (no smoothing / look-ahead) in mp.regimes.FilteredHMM
+"Ang & Bekaert (2002), Rev. Financial Studies 15(4):1137-1187",Regime shifts in asset allocation,Regime-conditioned state-to-next-regime mapping (HMM-based approach)
+"Kritzman, Page & Turkington (2012), Financial Analysts J. 68(3):22-39",HMM regimes for dynamic strategies,HMM states used as features for supervised models (HMM-augmented ensemble)
+"J.P. Morgan/Reuters (1996), RiskMetrics Technical Document",EWMA volatility (lambda = 0.94),EWMA sigma baseline for the volatility-regime sub-task
+"Bollerslev (1986), J. Econometrics 31(3):307-327","GARCH(1,1) volatility forecasting","GARCH(1,1) one-step sigma forecast (arch package) for the volatility sub-task"
+"Faber (2007), J. Wealth Management 9(4):69-79",Moving-average trend rule,SMA-50/200 trend rule for the trend sub-task
+"Chen & Guestrin (2016), KDD; Ke et al. (2017), NeurIPS",Gradient-boosted trees,"XGBoost and LightGBM classifiers (tuned with Optuna, Akiba et al. 2019, KDD)"
+"Guo et al. (2017), ICML",Temperature scaling for calibration,Temperature-scaled soft-voting ensemble ('Calibrated hybrid')
+"Lundberg & Lee (2017), NeurIPS",SHAP explanations,TreeSHAP in the Explainable-AI page and report

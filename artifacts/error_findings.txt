@@ -1,0 +1,6 @@
+On 1420 test days the Calibrated hybrid errs on 16.3% of days versus 13.9% for persistence.
+Error composition: 88% trend-only, 11% volatility-only, 2% both.
+Regime changes: 197 true changes, 127 flagged, 47 caught (recall 24%, precision 37%); persistence catches none by construction.
+Errors concentrate near label thresholds: 36.1% error in the closest quartile vs 2.5% in the farthest.
+Error by VIX regime: VIX high (>20.6) 8.7%, VIX low (<14.7) 16.2%, VIX mid (14.7-20.6) 19.0%.
+Most frequent confusion: Sideways/Low -> Bullish/Low (48 days, 21% of errors).

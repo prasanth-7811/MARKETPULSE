@@ -1,0 +1,56 @@
+{
+  "data": {
+    "rows": 7302,
+    "first": "1990-01-02",
+    "last": "2018-12-21",
+    "fingerprint": "bcd9b70be863"
+  },
+  "splits": {
+    "train": [
+      "1990-10-15",
+      "2007-08-10",
+      4241
+    ],
+    "validation": [
+      "2007-09-11",
+      "2013-04-04",
+      1401
+    ],
+    "test": [
+      "2013-05-03",
+      "2018-12-20",
+      1420
+    ]
+  },
+  "temperature": 0.8354942976876246,
+  "label_thresholds": {
+    "bearish_below_momentum": -0.00129112684208188,
+    "bullish_above_momentum": 0.053842271628549376,
+    "high_vol_above": 0.12548237841529716,
+    "window": 60
+  },
+  "hybrid": {
+    "validation_accuracy": 0.8472519628836546,
+    "validation_macro_f1": 0.8251837007827553,
+    "validation_log_loss": 0.39417977693138234,
+    "validation_brier": 0.2202358467323182,
+    "validation_ece": 0.018486572313024096,
+    "test_accuracy": 0.8366197183098592,
+    "test_macro_f1": 0.7872455786799629,
+    "test_log_loss": 0.43919693703374374,
+    "test_brier": 0.23923132765943164,
+    "test_ece": 0.015266763550636987
+  },
+  "pca": {
+    "k95": 18,
+    "pc1": 0.2916968995479305,
+    "silhouette": -0.034045182456006594
+  },
+  "best_params": {},
+  "hmm_states": [
+    "Bullish / Low Volatility",
+    "Bearish / High Volatility",
+    "Sideways / Low Volatility"
+  ],
+  "runtime_s": 177.5
+}

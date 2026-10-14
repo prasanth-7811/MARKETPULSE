@@ -1,0 +1,9 @@
+actual,predicted,count,share_of_errors
+Sideways/Low,Bullish/Low,48,0.20689655172413793
+Bullish/Low,Sideways/Low,40,0.1724137931034483
+Bullish/High,Sideways/High,31,0.1336206896551724
+Bearish/Low,Sideways/Low,27,0.11637931034482758
+Bearish/High,Sideways/High,20,0.08620689655172414
+Bullish/High,Bullish/Low,17,0.07327586206896551
+Sideways/Low,Bearish/Low,14,0.0603448275862069
+Sideways/High,Bearish/High,13,0.05603448275862069

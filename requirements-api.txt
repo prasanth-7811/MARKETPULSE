@@ -1,0 +1,14 @@
+# Minimal, pinned runtime for the inference API / Docker image (pins match the environment the bundled model was trained in;
+# scikit-learn/xgboost/lightgbm/hmmlearn pickles are version-sensitive - retrain with train.py if you change them).
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+lightgbm==4.7.0
+hmmlearn==0.3.3
+joblib==1.6.0
+PyYAML==6.0.3
+fastapi==0.143.0
+uvicorn==0.53.0
+pydantic==2.13.5

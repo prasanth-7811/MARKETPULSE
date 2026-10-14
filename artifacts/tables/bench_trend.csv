@@ -1,0 +1,8 @@
+model,accuracy,macro_f1
+Persistence (today's regime),0.8704225352112676,0.8644222165412779
+Persistence baseline (collapsed to 3 trend classes),0.8704225352112676,0.8644222165412779
+Calibrated hybrid (collapsed to 3 trend classes),0.854225352112676,0.8452106402001135
+Soft-voting ensemble (collapsed to 3 trend classes),0.854225352112676,0.844904768114862
+HMM-based approach (collapsed to 3 trend classes),0.5387323943661971,0.4787895793591375
+SMA-50/200 rule (Faber-style),0.28732394366197184,0.2958631719058756
+Majority class,0.5591549295774648,0.2390846130683529

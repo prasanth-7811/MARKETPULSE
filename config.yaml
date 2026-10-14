@@ -1,0 +1,53 @@
+app:
+  name: MarketPulse
+  version: "2.0.0"
+data:
+  ticker: SPY
+  source: bundled          # bundled | yfinance | csv
+  start: "1990-01-01"
+  presets: [SPY, QQQ, DIA, IWM, "^GSPC", "^NDX", GLD, "BTC-USD"]
+features:
+  return_window: 5
+  vol_windows: [10, 20, 60]
+  mom_windows: [5, 20, 60]
+  rsi_window: 14
+  use_volume: true
+  advanced: true            # range vol estimators, higher moments, trend indicators
+  use_cross_asset: true     # VIX / Brent covariates when present
+labels:
+  window: 60
+  trend_quantiles: [0.3, 0.7]
+hmm:
+  n_states: 3
+  covariance_type: full
+  n_iter: 200
+split:
+  train: 0.6
+  val: 0.2
+  test: 0.2
+  embargo: 20
+  cv_splits: 3
+  seed: 42
+models:
+  selected: [Logistic Regression, Random Forest, XGBoost, LightGBM]
+  params: {}
+transition:
+  horizons: [5, 10, 20]
+  horizon: 5
+  threshold: 0.5
+calibration:
+  method: temperature
+  transition_method: auto      # none | platt | isotonic | auto (chosen on validation only)
+  confidence_threshold: 0.6
+tuning:
+  backend: optuna            # optuna TPE sampler + median pruner
+  n_trials: 25
+  metric: neg_log_loss       # neg_log_loss (probabilistic quality, default) | macro_f1
+  cv_splits: 4
+  timeout_s: 900
+reduction:
+  pca_variance: 0.95
+  tsne_perplexity: 30
+tracking:
+  dir: experiments
+  mlflow: false              # also mirror runs to MLflow if installed
