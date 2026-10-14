@@ -1,7 +1,6 @@
 # Production inference requirements for Vercel / serverless runtime.
 # Excludes heavy dev/training packages (Streamlit, Plotly, SHAP, Optuna, MLflow) to stay under Vercel bundle limits.
 fastapi>=0.110
-uvicorn>=0.29
 pydantic>=2.0
 numpy>=1.26
 pandas>=2.1

@@ -1,5 +1,10 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.py": {
+      "excludeFiles": "{tests/**,report/**,docs/**,views/**,experiments/**,assets/**,artifacts/tables/**,*.md,Makefile,Dockerfile*}"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
