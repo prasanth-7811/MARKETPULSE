@@ -16,6 +16,18 @@ from mp.data import clean, load_bundled, load_csv, load_yf_aux, load_yfinance
 from mp.inference import BUNDLE_VERSION, DEFAULT_BUNDLE, InferenceError, Predictor
 from mp.regimes import CLASSES
 
+# ZeroGPU decorator support for Hugging Face Spaces (with local fallback)
+try:
+    import spaces
+    GPU = spaces.GPU
+except (ImportError, Exception):
+    def GPU(fn=None, **kwargs):
+        if fn is not None:
+            return fn
+        def decorator(func):
+            return func
+        return decorator
+
 # Load trained predictor bundle
 try:
     predictor = Predictor.load(DEFAULT_BUNDLE)
@@ -185,6 +197,7 @@ def plot_price_history(df: pd.DataFrame, as_of: str, regime: str) -> go.Figure:
     return fig
 
 
+@GPU
 def run_historical(date_pick: str | None, preset: str | None):
     """Executes inference on bundled S&P 500 dataset as of the selected date."""
     if predictor is None:
@@ -210,6 +223,7 @@ def run_historical(date_pick: str | None, preset: str | None):
         return f"<div style='color:#EF4444; padding:12px; background:#1F2937; border-radius:8px;'>Prediction failed: {exc}</div>", None, None, None, {"error": str(exc)}
 
 
+@GPU
 def run_live_ticker(ticker_symbol: str, years: int):
     """Fetches live daily market data via yfinance and runs the causal regime pipeline."""
     if predictor is None:
@@ -239,6 +253,7 @@ def run_live_ticker(ticker_symbol: str, years: int):
         return f"<div style='color:#EF4444; padding:12px; background:#1F2937; border-radius:8px;'>Live download failed for '{symbol}': {exc}</div>", None, None, None, {"error": str(exc)}
 
 
+@GPU
 def run_csv_upload(file):
     """Parses user-uploaded CSV and runs regime classification."""
     if predictor is None:
