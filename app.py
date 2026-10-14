@@ -1,4 +1,14 @@
-"""MarketPulse - entry point. Run with:  streamlit run app.py"""
+"""MarketPulse - entry point for both Gradio (Hugging Face Spaces) and Streamlit."""
+import os
+import sys
+
+# If invoked via 'python app.py' (Hugging Face Spaces Gradio runner or direct execution)
+if "streamlit" not in sys.modules and not any("streamlit" in str(arg).lower() for arg in sys.argv):
+    from app_gradio import demo
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(server_name="0.0.0.0", server_port=port)
+    sys.exit(0)
+
 import streamlit as st
 from pathlib import Path
 
