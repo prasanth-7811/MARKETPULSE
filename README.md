@@ -1,10 +1,11 @@
 ---
-title: MarketPulse Regime API
+title: MarketPulse Financial Market Regime Intelligence
 emoji: 📈
 colorFrom: blue
 colorTo: indigo
-sdk: docker
-app_port: 7860
+sdk: gradio
+sdk_version: 4.44.1
+app_file: app_gradio.py
 pinned: false
 ---
 # MarketPulse - Financial Market Regime Intelligence (v2.0)
