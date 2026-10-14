@@ -14,3 +14,4 @@ PyYAML>=6.0
 gradio>=4.40.0
 plotly>=5.20.0
 yfinance>=0.2.40
+huggingface_hub<1.0.0
