@@ -1,0 +1,22 @@
+services:
+  # 1. MarketPulse Interactive Streamlit Dashboard
+  - type: web
+    name: marketpulse-dashboard
+    env: python
+    plan: free
+    buildCommand: "git lfs pull && pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+
+  # 2. MarketPulse REST Inference API
+  - type: web
+    name: marketpulse-api
+    env: python
+    plan: free
+    buildCommand: "git lfs pull && pip install --upgrade pip && pip install -r requirements-api.txt"
+    startCommand: "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
